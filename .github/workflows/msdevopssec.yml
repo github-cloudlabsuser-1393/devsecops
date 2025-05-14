@@ -20,7 +20,7 @@ jobs:
         uses: microsoft/security-devops-action@latest
         id: msdo
         with:
-          policy: GitHub  # Optional: can be 'GitHub', 'microsoft', or 'none'
+          policy: GitHub
 
       # Step 3: Upload alerts to GitHub Security tab
       - name: Upload alerts to Security tab
@@ -30,7 +30,7 @@ jobs:
 
       # Step 4: Upload alerts file as a workflow artifact
       - name: Upload alerts file as a workflow artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.3
         with:  
           name: alerts
           path: ${{ steps.msdo.outputs.sarifFile }}
