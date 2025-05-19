@@ -61,9 +61,6 @@ var cartsDbAcctName = '${prefixHyphenated}-carts${suffix}'
 var cartsDbName = 'cartsdb'
 var cartsDbStocksContainerName = 'carts'
 
-@secure()
-var acrPasswordValue = acr.listCredentials().passwords[0].value
-
 // app service plan (products api)
 var productsApiAppSvcPlanName = '${prefixHyphenated}-products${suffix}'
 var productsApiAppSvcName = '${prefixHyphenated}-products${suffix}'
@@ -628,7 +625,7 @@ resource cartsapiaca 'Microsoft.App/containerApps@2022-06-01-preview' = {
       secrets: [
         {
           name: cartsApiAcaSecretAcrPassword
-          value: acrPasswordValue
+          value: acr.listCredentials().passwords[0].value
         }
       ]
     }
@@ -1450,7 +1447,7 @@ resource cartsinternalapiaca 'Microsoft.App/containerApps@2022-06-01-preview' = 
       secrets: [
         {
           name: cartsInternalApiAcaSecretAcrPassword
-          value: acrPasswordValue
+          value: acr.listCredentials().passwords[0].value
         }
       ]
     }
