@@ -61,6 +61,9 @@ var cartsDbAcctName = '${prefixHyphenated}-carts${suffix}'
 var cartsDbName = 'cartsdb'
 var cartsDbStocksContainerName = 'carts'
 
+@secure()
+var acrPasswordValue = acr.listCredentials().passwords[0].value
+
 // app service plan (products api)
 var productsApiAppSvcPlanName = '${prefixHyphenated}-products${suffix}'
 var productsApiAppSvcName = '${prefixHyphenated}-products${suffix}'
