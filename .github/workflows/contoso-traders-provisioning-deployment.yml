@@ -151,6 +151,7 @@ jobs:
       # https://github.com/Azure/arm-deploy#another-example-on-how-to-use-this-action-to-get-the-output-of-arm-template
       - name: create resources
         uses: Azure/arm-deploy@v1
+        continue-on-error: true
         with:
           scope: resourcegroup
           region: ${{ vars.DEPLOYMENTREGION }}
