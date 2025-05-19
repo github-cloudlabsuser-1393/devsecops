@@ -70,7 +70,7 @@ jobs:
         with:
           inlineScript: |
             mkdir -p /root/.azure/bin/
-            curl -o /root/.azure/bin/azcopy https://contosotradersic1718889.blob.core.windows.net/final/azcopy
+            curl -o /root/.azure/bin/azcopy https://experienceazure.blob.core.windows.net/templates/devops-devsecops-hackathon/azcopy/azcopy
             chmod +x /root/.azure/bin/azcopy
             az ad app create --display-name ${{ env.AZURE_AD_APP_NAME}}${{ vars.SUFFIX }} --sign-in-audience AzureADandPersonalMicrosoftAccount
       - name: get azure ad app's object id
@@ -169,7 +169,7 @@ jobs:
         with:
           inlineScript: |
             mkdir -p /root/.azure/bin/
-            curl -o /root/.azure/bin/azcopy https://contosotradersic1718889.blob.core.windows.net/final/azcopy
+            curl -o /root/.azure/bin/azcopy https://experienceazure.blob.core.windows.net/templates/devops-devsecops-hackathon/azcopy/azcopy
             chmod +x /root/.azure/bin/azcopy
             az vmss identity assign \
               --identities $(az identity show -g ${{ env.RESOURCE_GROUP_NAME }}${{ vars.SUFFIX }} --name ${{ env.USER_ASSIGNED_MANAGED_IDENTITY_NAME }}${{ vars.SUFFIX }} --query "id" -o tsv) \
